@@ -8,14 +8,23 @@ class BookItem extends Component{
         author: PropTypes.string.isRequired
     }
 
+    state = {
+        category: 'none'
+    }
+
+    updateCategory = (event) => {
+        this.setState({ category: event.target.value})
+    }
+
     render() {
         const {url, title, author} = this.props
+        const {category} = this.state
         return (
             <div className="book">
                 <div className="book-top">
                 <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${url})` }}></div>
                 <div className="book-shelf-changer">
-                    <select>
+                    <select onChange={this.updateCategory} value={category}>
                     <option value="none" disabled>Move to...</option>
                     <option value="currentlyReading">Currently Reading</option>
                     <option value="wantToRead">Want to Read</option>
