@@ -47,9 +47,7 @@ class SearchBooks extends Component {
                         {showingBooks && showingBooks.length > 0 && showingBooks.map((book) => (
                             <li key={book.id}>
                                 <BookItem
-                                    url={book.imageLinks.smallThumbnail}
-                                    title={book.title}
-                                    author={book.authors[0]}
+                                    book={book}
                                 />
                             </li>
                         ))}
