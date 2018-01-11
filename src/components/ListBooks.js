@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import BookShelf from './BookShelf'
-//import BookItem from './BookItem'
 
 class ListBooks extends Component {
     render() {
-        const {books} = this.props
+        const {shelfBooks} = this.props
         return (
             <div className="list-books">
                 <div className="list-books-title">
@@ -16,17 +15,17 @@ class ListBooks extends Component {
                         <BookShelf
                             title={"Currently Reading"}
                             shelf={"currentlyReading"}
-                            books={books}
+                            books={shelfBooks}
                         />
                         <BookShelf
                             title={"Want to Read"}
                             shelf={"wantToRead"}
-                            books={books}
+                            books={shelfBooks}
                         />
                         <BookShelf
                             title={"Read"}
                             shelf={"read"}
-                            books={books}
+                            books={shelfBooks}
                         />
                     </div>
                 </div>

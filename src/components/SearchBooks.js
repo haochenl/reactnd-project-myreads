@@ -23,10 +23,13 @@ class SearchBooks extends Component {
 
     render() {
         const {books, showingQuery} = this.state
+        const {shelfBooks} = this.props
 
+        let shelfBooksMap = new Map(shelfBooks.map((book) => [book.id, book]))
         let showingBooks
         if (books && books.length > 0) {
             showingBooks = books.filter((book) => book.authors !== undefined)
+                                .map((book) => shelfBooksMap.has(book.id) ? shelfBooksMap.get(book.id) : book)
         }
 
         return (
